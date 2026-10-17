@@ -1,5 +1,5 @@
 // POST /api/recognize  { imageData: "<base64 PNG, no data: prefix>" }
-// Uses Groq's vision-capable Llama model to transcribe handwriting from the
+// Uses Groq's vision-capable model to transcribe handwriting from the
 // canvas image. The Groq API key lives only in this serverless function's
 // environment (set in Vercel project settings) -- it's never sent to the browser.
 
@@ -45,14 +45,17 @@ module.exports = async (req, res) => {
             ],
           },
         ],
-        max_tokens: 1000,
+        max_completion_tokens: 2048,
       }),
     });
 
     const data = await response.json();
     if (data.error) throw new Error(data.error.message);
 
-    res.status(200).json({ text: data.choices[0].message.content });
+    const rawText = data.choices?.[0]?.message?.content || '';
+    const cleanText = rawText.replace(/<think>[\s\S]*?<\/think>/gi, '').trim();
+
+    res.status(200).json({ text: cleanText });
   } catch (err) {
     console.error('recognize error:', err.message);
     res.status(500).json({ error: err.message || 'Recognition failed' });
