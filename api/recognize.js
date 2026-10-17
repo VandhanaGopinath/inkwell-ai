@@ -4,7 +4,7 @@
 // environment (set in Vercel project settings) -- it's never sent to the browser.
 
 const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
-const VISION_MODEL = 'meta-llama/llama-4-scout-17b-16e-instruct';
+const VISION_MODEL = 'qwen/qwen3.8-27b';
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
