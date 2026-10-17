@@ -1,0 +1,7 @@
+{
+  "name": "inkwell",
+  "version": "1.0.0",
+  "description": "Handwrite notes on a canvas, convert them to text with AI, translate and summarize.",
+  "private": true,
+  "license": "MIT"
+}
