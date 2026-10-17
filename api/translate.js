@@ -1,7 +1,7 @@
 // POST /api/translate  { text: "...", language: "Spanish" }
 
 const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
-const TEXT_MODEL = 'llama-3.3-70b-versatile';
+const TEXT_MODEL = 'openai/gpt-oss-120b';
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
