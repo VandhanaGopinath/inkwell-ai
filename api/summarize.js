@@ -1,7 +1,7 @@
 // POST /api/summarize  { text: "...", mode: "summary" | "bullets" | "insights" }
 
 const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
-const TEXT_MODEL = 'llama-3.3-70b-versatile';
+const TEXT_MODEL = 'openai/gpt-oss-120b';
 
 const PROMPTS = {
   summary: 'Write a clear, concise summary. Return only the summary.',
