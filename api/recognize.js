@@ -1,7 +1,7 @@
 // POST /api/recognize  { imageData: "<base64 PNG, no data: prefix>" }
 // Uses Groq's vision-capable model to transcribe handwriting from the
 // canvas image. The Groq API key lives only in this serverless function's
-// environment (set in Vercel project settings) -- it's never sent to the browser.
+// environment (set in Vercel project settings) -- it's never sent to the browser. 
 
 const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
 const VISION_MODEL = 'qwen/qwen3.8-27b';
